@@ -7,7 +7,6 @@ declare $(
       sed -E -e 's,(.*),__source_\1__,' -e 's,-,_,g' <<< "${__fname__}"
 )=true
 
-
 # Colors:
 rst=$(tput sgr0)                                   # Reset
 bk="$(tput setaf 0)"                               # Black
