@@ -1,11 +1,9 @@
 #!/bin/bash
 
 # Verification if we've sourced this in other scripts. Name is standardized.
-# e.g., filename 'hre-colors.sh' --> '__source_hre_colors=true'
+# e.g., filename 'mk-conf.sh' --> '__source_mk_conf=true'
 __fname__="$( basename "${BASH_SOURCE[0]%.*}" )"
-declare $(
-      sed -E -e 's,(.*),__source_\1__,' -e 's,-,_,g' <<< "${__fname__}"
-)=true
+declare "__source_${__fname__//[^[:alnum:]]/_}__"=true
 
 # Colors:
 rst=$(tput sgr0)                                   # Reset
